@@ -2,9 +2,6 @@ import { createTheme } from '@mui/material/styles';
 import { red, teal, deepOrange, cyan, orange } from '@mui/material/colors';
 
 const theme = createTheme({
-    cssVariables: {
-        colorSchemeSelector: 'class',
-    },
     trello: {
         appBarHeight: '58px',
         boardBarHeight: '60px',
@@ -25,6 +22,48 @@ const theme = createTheme({
                 secondary: orange,
                 error: {
                     main: red.A200,
+                },
+            },
+        },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    textTransform: 'none',
+                },
+            },
+        },
+
+        MuiInputLabel: {
+            styleOverrides: {
+                root: ({ theme }) => {
+                    return {
+                        color: theme.palette.primary.main,
+                        fontSize: '0.875rem',
+                    };
+                },
+            },
+        },
+
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: ({ theme }) => {
+                    return {
+                        color: theme.palette.primary.main,
+                        fontSize: '0.875rem',
+                        '.MuiOutlinedInput-notchedOutline': {
+                            borderColor: theme.palette.primary.light,
+                        },
+                        '&:hover': {
+                            '.MuiOutlinedInput-notchedOutline': {
+                                borderColor: theme.palette.primary.main,
+                            },
+                        },
+                        '& fieldset': {
+                            borderWidth: '1px !important',
+                        },
+                    };
                 },
             },
         },
