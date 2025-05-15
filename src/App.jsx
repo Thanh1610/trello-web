@@ -1,4 +1,4 @@
-import Board from './pages/Board/Board';
+import Board from '~/layouts/Board/Board';
 
 function App() {
     return <Board />;
