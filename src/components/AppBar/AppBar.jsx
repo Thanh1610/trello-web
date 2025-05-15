@@ -2,6 +2,7 @@ import { Box, Typography, Button, TextField, Badge, Tooltip, SvgIcon } from '@mu
 import AppsIcon from '@mui/icons-material/Apps';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 
 import ModeSelect from '~/components/SelectMode';
 import Workspaces from './menus/Workspaces';
@@ -25,7 +26,7 @@ function AppBar() {
                 overflowX: 'auto',
             }}
         >
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
                 <AppsIcon sx={{ color: 'primary.main' }} />
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 0.5 }}>
                     <SvgIcon component={TrelloLogo} inheritViewBox fontSize="small" sx={{ color: 'primary.main' }} />
@@ -39,7 +40,9 @@ function AppBar() {
                     <Recent />
                     <Starred />
                     <Templates />
-                    <Button variant="outlined">Create</Button>
+                    <Button variant="outlined" startIcon={<LibraryAddIcon />}>
+                        Create
+                    </Button>
                 </Box>
             </Box>
 
