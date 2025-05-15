@@ -3,7 +3,11 @@ import { red, teal, deepOrange, cyan, orange } from '@mui/material/colors';
 
 const theme = createTheme({
     cssVariables: {
-        colorSchemeSelector: 'class', // Sử dụng class để xác định chế độ màu
+        colorSchemeSelector: 'class',
+    },
+    trello: {
+        appBarHeight: '48px',
+        boardBarHeight: '48px',
     },
     colorSchemes: {
         light: {

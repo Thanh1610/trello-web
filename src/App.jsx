@@ -1,5 +1,5 @@
-import Button from '@mui/material/Button';
 import { useColorScheme } from '@mui/material/styles';
+import { Container } from '@mui/material';
 
 //select mode
 import InputLabel from '@mui/material/InputLabel';
@@ -16,7 +16,6 @@ function SelectMode() {
 
     const handleChange = (event) => {
         const selectedMode = event.target.value;
-        console.log(selectedMode);
         setMode(selectedMode);
     };
 
@@ -54,13 +53,41 @@ function SelectMode() {
 }
 function App() {
     return (
-        <>
-            <SelectMode />
-            <hr />
-            <Button variant="text">Text</Button>
-            <Button variant="contained">Contained</Button>
-            <Button variant="outlined">Outlined</Button>
-        </>
+        <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
+            <Box
+                sx={{
+                    backgroundColor: 'primary.light',
+                    with: '100%',
+                    height: (theme) => theme.trello.appBarHeight,
+                    display: 'flex',
+                    alignItems: 'center',
+                }}
+            >
+                <SelectMode />
+            </Box>
+            <Box
+                sx={{
+                    backgroundColor: 'primary.dark',
+                    with: '100%',
+                    height: (theme) => theme.trello.boardBarHeight,
+                    display: 'flex',
+                    alignItems: 'center',
+                }}
+            >
+                Board Bar
+            </Box>
+            <Box
+                sx={{
+                    backgroundColor: 'primary.main',
+                    with: '100%',
+                    height: (theme) => `calc(100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight})`,
+                    display: 'flex',
+                    alignItems: 'center',
+                }}
+            >
+                Content
+            </Box>
+        </Container>
     );
 }
 
