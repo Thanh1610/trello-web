@@ -6,8 +6,8 @@ const theme = createTheme({
         colorSchemeSelector: 'class',
     },
     trello: {
-        appBarHeight: '48px',
-        boardBarHeight: '48px',
+        appBarHeight: '58px',
+        boardBarHeight: '60px',
     },
     colorSchemes: {
         light: {
