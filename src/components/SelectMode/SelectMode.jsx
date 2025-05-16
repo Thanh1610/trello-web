@@ -2,11 +2,11 @@ import { useColorScheme } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import Box from '@mui/material/Box';
 
 function ModeSelect() {
     const { mode, setMode } = useColorScheme();

@@ -1,13 +1,12 @@
-import Box from '@mui/material/Box';
-import { Chip, Button, Tooltip } from '@mui/material';
+import { Chip, Button, Tooltip, Box } from '@mui/material';
+import BoltIcon from '@mui/icons-material/Bolt';
+import Avatar from '@mui/material/Avatar';
+import AvatarGroup from '@mui/material/AvatarGroup';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import VpnLockIcon from '@mui/icons-material/VpnLock';
 import AddToDriveIcon from '@mui/icons-material/AddToDrive';
-import BoltIcon from '@mui/icons-material/Bolt';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import Avatar from '@mui/material/Avatar';
-import AvatarGroup from '@mui/material/AvatarGroup';
 
 function BoardBar() {
     const MENU_STYLES = {
@@ -34,7 +33,6 @@ function BoardBar() {
                 px: 2,
                 gap: 2,
                 overflowX: 'auto',
-                borderBottom: '1px solid #00bfa5',
                 bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#33495e' : '#1976d2'),
             }}
         >
@@ -66,9 +64,12 @@ function BoardBar() {
                     max={7}
                     sx={{
                         '& .MuiAvatar-root': {
-                            width: '32px',
-                            height: '32px',
+                            width: 30,
+                            height: 30,
                             border: 'none',
+                            color: 'white',
+                            cursor: 'pointer',
+                            '&:first-of-type': { bgcolor: '#a4b0de' },
                         },
                     }}
                 >

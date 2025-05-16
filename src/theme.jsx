@@ -1,31 +1,36 @@
 import { createTheme } from '@mui/material/styles';
 // import { red, teal, deepOrange, cyan, orange } from '@mui/material/colors';
 
+const APP_BAR_HEIGHT = '58px';
+const BOARD_BAR_HEIGHT = '60px';
+const BOARD_BAR_CONTENT_HEIGHT = `calc(100vh - ${APP_BAR_HEIGHT} - ${BOARD_BAR_HEIGHT})`;
+
 const theme = createTheme({
     trello: {
-        appBarHeight: '58px',
-        boardBarHeight: '60px',
+        appBarHeight: APP_BAR_HEIGHT,
+        boardBarHeight: BOARD_BAR_HEIGHT,
+        boardBarContentHeight: BOARD_BAR_CONTENT_HEIGHT,
     },
-    // colorSchemes: {
-    //     light: {
-    //         palette: {
-    //             primary: teal,
-    //             secondary: deepOrange,
-    //             error: {
-    //                 main: red.A400,
-    //             },
-    //         },
-    //     },
-    //     dark: {
-    //         palette: {
-    //             primary: cyan,
-    //             secondary: orange,
-    //             error: {
-    //                 main: red.A200,
-    //             },
-    //         },
-    //     },
-    // },
+    colorSchemes: {
+        light: {
+            // palette: {
+            //     primary: teal,
+            //     secondary: deepOrange,
+            //     error: {
+            //         main: red.A400,
+            //     },
+            // },
+        },
+        dark: {
+            // palette: {
+            //     primary: cyan,
+            //     secondary: orange,
+            //     error: {
+            //         main: red.A200,
+            //     },
+            // },
+        },
+    },
     components: {
         MuiCssBaseline: {
             styleOverrides: {
@@ -56,6 +61,12 @@ const theme = createTheme({
         MuiInputLabel: {
             styleOverrides: {
                 root: { fontSize: '0.875rem' },
+            },
+        },
+
+        MuiTypography: {
+            styleOverrides: {
+                root: { '&.MuiTypography-body1': { fontSize: '0.875rem' } },
             },
         },
 

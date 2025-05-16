@@ -4,16 +4,16 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import { useState } from 'react';
 
-import ModeSelect from '~/components/SelectMode';
+import ModeSelect from '~/components/SelectMode/SelectMode';
 import Workspaces from './menus/Workspaces';
 import Recent from './menus/Recent';
 import Starred from './menus/Starred';
 import Templates from './menus/Templates';
 import Profiles from './menus/Profiles';
 import TrelloLogo from '~/assets/Trello.svg?react';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import { useState } from 'react';
 
 function AppBar() {
     const [searchValue, setSearchValue] = useState('');
