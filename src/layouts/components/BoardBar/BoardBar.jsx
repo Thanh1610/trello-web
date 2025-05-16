@@ -7,8 +7,9 @@ import VpnLockIcon from '@mui/icons-material/VpnLock';
 import AddToDriveIcon from '@mui/icons-material/AddToDrive';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { capitalizeFirstLetter } from '~/utils/formatters';
 
-function BoardBar() {
+function BoardBar({ board }) {
     const MENU_STYLES = {
         color: 'white',
         bgcolor: 'transparent',
@@ -37,9 +38,9 @@ function BoardBar() {
             }}
         >
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
-                <Chip sx={MENU_STYLES} icon={<DashboardIcon />} label="Tạ Tuấn Thành" clickable />
+                <Chip sx={MENU_STYLES} icon={<DashboardIcon />} label={capitalizeFirstLetter(board?.title)} clickable />
 
-                <Chip sx={MENU_STYLES} icon={<VpnLockIcon />} label="Public/Private Workspaces" clickable />
+                <Chip sx={MENU_STYLES} icon={<VpnLockIcon />} label={capitalizeFirstLetter(board?.type)} clickable />
 
                 <Chip sx={MENU_STYLES} icon={<AddToDriveIcon />} label="Add To Google Drive" clickable />
 

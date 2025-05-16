@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Column from './Column/Column';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
-function ListColumns() {
+function ListColumns({ columns }) {
     return (
         <Box
             sx={{
@@ -18,20 +18,11 @@ function ListColumns() {
             }}
         >
             {/* box column */}
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
-            <Column />
+            {columns.map((column) => (
+                <Column key={column?._id} column={column} />
+            ))}
 
+            {/* add column button */}
             <Box
                 sx={{
                     minWidth: '200px',

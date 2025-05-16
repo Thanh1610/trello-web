@@ -4,12 +4,16 @@ import { createTheme } from '@mui/material/styles';
 const APP_BAR_HEIGHT = '58px';
 const BOARD_BAR_HEIGHT = '60px';
 const BOARD_BAR_CONTENT_HEIGHT = `calc(100vh - ${APP_BAR_HEIGHT} - ${BOARD_BAR_HEIGHT})`;
+const HEADER_HEIGHT = '50px';
+const FOOTER_HEIGHT = '56px';
 
 const theme = createTheme({
     trello: {
         appBarHeight: APP_BAR_HEIGHT,
         boardBarHeight: BOARD_BAR_HEIGHT,
         boardBarContentHeight: BOARD_BAR_CONTENT_HEIGHT,
+        headerHeight: HEADER_HEIGHT,
+        footerHeight: FOOTER_HEIGHT,
     },
     colorSchemes: {
         light: {

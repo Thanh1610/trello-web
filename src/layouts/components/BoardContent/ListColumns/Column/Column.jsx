@@ -6,15 +6,15 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import DragHandleIcon from '@mui/icons-material/DragHandle';
 import { ContentPaste, ContentCopy, ContentCut, AddCard } from '@mui/icons-material';
 import ListCards from './ListCards/ListCards';
+import { mapOrder } from '~/utils/sorts';
 
-const HEADER_HEIGHT = '50px';
-const FOOTER_HEIGHT = '56px';
-
-function Column() {
+function Column({ column }) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => setAnchorEl(event.currentTarget);
     const handleClose = () => setAnchorEl(null);
+
+    const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id');
 
     return (
         <Box
@@ -31,7 +31,7 @@ function Column() {
             {/* header column */}
             <Box
                 sx={{
-                    height: HEADER_HEIGHT,
+                    height: (theme) => theme.trello.headerHeight,
                     p: 2,
                     display: 'flex',
                     alignItems: 'center',
@@ -46,7 +46,7 @@ function Column() {
                         cursor: 'pointer',
                     }}
                 >
-                    Column Title
+                    {column?.title}
                 </Typography>
                 <Box>
                     <Tooltip title="More Options">
@@ -115,11 +115,12 @@ function Column() {
             </Box>
 
             {/* card list */}
-            <ListCards HEADER_HEIGHT={HEADER_HEIGHT} FOOTER_HEIGHT={FOOTER_HEIGHT} />
+            <ListCards cards={orderedCards} />
+
             {/* footer column */}
             <Box
                 sx={{
-                    height: FOOTER_HEIGHT,
+                    height: (theme) => theme.trello.footerHeight,
                     p: 2,
                     display: 'flex',
                     alignItems: 'center',

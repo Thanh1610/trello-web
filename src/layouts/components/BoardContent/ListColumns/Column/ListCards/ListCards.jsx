@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Card from './Card/Card';
 
-function ListCards({ HEADER_HEIGHT, FOOTER_HEIGHT }) {
+function ListCards({ cards }) {
     return (
         <Box
             sx={{
@@ -16,21 +16,17 @@ function ListCards({ HEADER_HEIGHT, FOOTER_HEIGHT }) {
                     `calc(
                         ${theme.trello.boardBarContentHeight} -
                         ${theme.spacing(5)} -
-                        ${HEADER_HEIGHT} -
-                        ${FOOTER_HEIGHT}
+                        ${theme.trello.headerHeight} -
+                        ${theme.trello.footerHeight}
                     )`.trim(),
                 '&::-webkit-scrollbar-thumb': { backgroundColor: '#ced0da' },
                 '&::-webkit-scrollbar-thumb:hover': { backgroundColor: '#bfc2cf' },
                 scrollBehavior: 'smooth ',
             }}
         >
-            <Card />
-            <Card hideMedia />
-            <Card hideMedia />
-            <Card hideMedia />
-            <Card hideMedia />
-            <Card hideMedia />
-            <Card hideMedia />
+            {cards?.map((card) => (
+                <Card key={card?._id} card={card} />
+            ))}
         </Box>
     );
 }
