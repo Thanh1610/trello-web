@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { Box, MenuItem, Menu, Divider, ListItemText, ListItemIcon, Typography, Tooltip, Button } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -7,8 +8,24 @@ import DragHandleIcon from '@mui/icons-material/DragHandle';
 import { ContentPaste, ContentCopy, ContentCut, AddCard } from '@mui/icons-material';
 import ListCards from './ListCards/ListCards';
 import { mapOrder } from '~/utils/sorts';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
 function Column({ column }) {
+    //drag
+    const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+        id: column._id,
+        data: { ...column },
+    });
+
+    const dndKitColumnStyle = {
+        transform: CSS.Translate.toString(transform),
+        // transition,
+        transition: transform ? 'transform 100ms ease' : undefined,
+        touchAction: 'none',
+    };
+
+    //Mui
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => setAnchorEl(event.currentTarget);
@@ -18,7 +35,12 @@ function Column({ column }) {
 
     return (
         <Box
+            ref={setNodeRef}
+            style={dndKitColumnStyle}
+            {...attributes}
+            {...listeners}
             sx={{
+                userSelect: 'none',
                 minWidth: '300px',
                 maxWidth: '300px',
                 bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#333643' : '#ebecf0'),
