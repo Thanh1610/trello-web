@@ -24,6 +24,7 @@ function Column({ column }) {
         transition: transform ? 'transform 100ms ease' : undefined,
         touchAction: 'none',
         opacity: isDragging ? 0.6 : undefined,
+        height: '100%',
     };
 
     //Mui

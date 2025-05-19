@@ -27,7 +27,9 @@ function Card({ card }) {
         // transition,
         transition: transform ? 'transform 100ms ease' : undefined,
         touchAction: 'none',
+        height: '100%',
         opacity: isDragging ? 0.5 : undefined,
+        border: isDragging ? '1px solid #2ecc71' : undefined,
     };
 
     return (
