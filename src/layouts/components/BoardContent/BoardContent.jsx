@@ -8,6 +8,7 @@ import {
     TouchSensor,
     DragOverlay,
     defaultDropAnimationSideEffects,
+    closestCorners,
 } from '@dnd-kit/core';
 import { arrayMove } from '@dnd-kit/sortable';
 import ListColumns from './ListColumns/ListColumns';
@@ -165,6 +166,7 @@ function BoardContent({ board }) {
             onDragOver={handleDragOver}
             onDragStart={handleDragStart}
             sensors={sensors}
+            collisionDetection={closestCorners}
         >
             <Box
                 sx={{
